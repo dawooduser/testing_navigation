@@ -1,23 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/examII" element={<ExampleII />} />
+          <Route path="/examI" element={<ExampleI />} />
+        </Routes>
+      </Router>
+    </div>
+  );
+}
+function Home() {
+  let navigate = useNavigate();
+  return (
+    <div>
+      <h1>home</h1>
+      <br />
+      <h6 onClick={() => navigate("/examI")}>to go exampleI</h6>
+      <br />
+      <h6 onClick={() => navigate("/examII")}>to go exampleI</h6>
+    </div>
+  );
+}
+function ExampleII() {
+  let navigate = useNavigate();
+  return (
+    <div>
+      <h1>ExampleII</h1>
+      <br />
+      <h6 onClick={() => navigate("/")}>back</h6>
+    </div>
+  );
+}
+function ExampleI() {
+  let navigate = useNavigate();
+  return (
+    <div>
+      <h1>ExampleI</h1>
+      <br />
+      <h6 onClick={() => navigate("/")}>back</h6>
     </div>
   );
 }
