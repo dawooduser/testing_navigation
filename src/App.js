@@ -49,6 +49,7 @@ function ExampleI() {
       <h1>ExampleI</h1>
       <br />
       <h6 onClick={() => navigate("/")}>back</h6>
+      <h3>asdas</h3>
     </div>
   );
 }
